@@ -1,8 +1,3 @@
-//Create an application that shows a weather forecast. 
-//A user should be able to load weather forecast for a typed-in location. 
-//A user should be able to select different types of forecasts: 
-//current weather data, 5 day / 3-hour forecast.
-
 var weather = new Vue({
   el: '#weather',
 
@@ -11,7 +6,6 @@ var weather = new Vue({
       city: "",
       temperature: '',
       condition: '',
-      icon: '',
       picked: 'current',
   },
 
