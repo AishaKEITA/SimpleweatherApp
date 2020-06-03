@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Weather Forcast</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+    <div id="weather">
+
+        <h1>Simple Weather App</h1>
+        <div class="search-box">
+            <p>Please select Current or Forecast collection:</p>
+            <div class="radio-btn">
+                <div>
+                    <input type="radio" v-model="picked" value="current">Current weather for any geolocation
+
+                    <input type="radio" v-model="picked" value="days">5-days weather forecast
+                </div>
+            </div>
+            <div class="location-wrap">
+                <input type="text" placeholder="Type in a location... " v-model="location">
+            </div>
+            <div class="btn-wrap">
+                <button v-on:click="searchButton" class="btn btn-primary">Search</button>
+            </div>
+
+        </div>
+
+        <div class="weather-wrap">
+            <div class="weather--location">{{city}}</div>
+            <div class="weather--temp">{{temperature}}°C</div>
+            <div class="weather--condition">{{condition}}</div>
+            <div class="weather--icon">{{icon}}</div>
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="src/main.js"></script>
+</body>
+
+</html>
