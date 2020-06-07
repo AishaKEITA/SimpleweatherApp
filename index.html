@@ -20,10 +20,10 @@
             <div class="radio-btn">
                 <div>
                     <input type="radio" v-model="picked" value="current">Current weather for any geolocation
-
                     <input type="radio" v-model="picked" value="days">5-days weather forecast
                 </div>
             </div>
+
             <div class="location-wrap">
                 <input type="text" placeholder="Type in a location... " v-model="location">
             </div>
@@ -35,8 +35,11 @@
 
         <div class="weather-wrap">
             <div class="weather--location">{{city}}</div>
-            <div class="weather--temp">{{temperature}}°C</div>
-            <div class="weather--condition">{{condition}}</div>
+            <template v-for="tempcond in tempconds">
+                <div class="weather--date" v-if="tempcond.date != null">{{tempcond.date}}</div>
+                <div class="weather--temp">{{tempcond.temperature}}°C</div>
+                <div class="weather--condition">{{tempcond.condition}}</div>
+            </template>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

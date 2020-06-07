@@ -34,6 +34,17 @@ h1 {
     padding: 10px;
 }
 
+.weather--date { 
+    margin: 0 auto;
+    text-align: center;
+    font-style: italic;
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    border-radius: 20px 20px;
+    width: 80%;   
+    color: red; 
+}
+
 .location-wrap {
     display: flex;
     justify-content: center;
@@ -51,30 +62,30 @@ h1 {
     color: white;
     text-align: center;
     font-weight: 600;
-    text-shadow: 1px 3px rgba($color: #000000, $alpha: 1.0);
+    text-shadow: 1px 3px rgba($color: #000000, $alpha: 1);
 }
 
 .weather--temp {
-    color: white;
+    color: orangered;
     text-align: center;
     font-weight: 900;
     font-style: italic;
-    font-size: 54px;
+    font-size: 34px;
     background-color: lightgrey;
     width: 40%;
     border-radius: 16px;
-    box-shadow: 2px 2px rgba($color: white, $alpha: 1.0);
+    box-shadow: 2px 2px rgba($color: white, $alpha: 1);
     padding: 10px;
 }
 
 .weather--condition {
-    color: white;
+    color: blue($color: #000000);
     text-align: center;
     font-weight: 700;
     font-style: italic;
     padding: 15px;
-    text-shadow: 3px rgba($color: #000000, $alpha: 1.0);
-    font-size: 40px;
+    text-shadow: 3px rgba($color: #000000, $alpha: 1);
+    font-size: 20px;
 }
 
 p {

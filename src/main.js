@@ -2,10 +2,11 @@ var weather = new Vue({
   el: '#weather',
 
   data: {
-      location: '',
+      location: 'Malmo',
       city: "",
-      temperature: '',
-      condition: '',
+      tempconds: null,
+    //   temperature: [""],
+    //   condition: [""],
       picked: 'current',
   },
 
@@ -21,9 +22,7 @@ var weather = new Vue({
                 res = JSON.parse(xhr.responseText);
                 console.log(res);
                 self.city = `${res.name}, ${res.sys.country}`;
-                self.temperature = res.main.temp;
-                self.condition = res.weather[0].description;
-                self.icon = res.weather[0].icon;
+                self.tempconds = [{temperature: res.main.temp, condition: res.weather[0].description}];
             };
             xhr.send();
         },
@@ -40,8 +39,16 @@ var weather = new Vue({
                 res = JSON.parse(xhr.responseText);
                 console.log(res);
                 self.city = `${res.city.name}, ${res.city.country}`;
-                self.temperature = res.list[0].main.temp;
-                self.condition = res.list[0].weather[0].description;
+            
+                var days = [];
+                for (let i = 0; i < res.list.length; i++) {
+                    var ele = res.list[i];
+                    if (ele.dt_txt.includes("12:00")) {
+                        //days.push({temperature: res.list[i].main.temp, condition: res.list[i].weather[0].description, date: res.list[i].dt_txt});
+                        days.push({temperature: ele.main.temp, condition: ele.weather[0].description, date: ele.dt_txt});
+                    }
+                }
+                self.tempconds = days;
             };
             xhr.send();
         },
